@@ -14,7 +14,7 @@
 		<div id="nav-items" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="/about">
+					<a href="/cart">
 						Your Cart
 					</a>
 				</li>
