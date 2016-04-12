@@ -14,6 +14,7 @@
 	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
 	crossorigin="anonymous"
 >
+<link rel="stylesheet" type="text/css" href="{{ asset('css/core.css') }}">
 <!--page specific css-->
 @yield('css')
 </head>
@@ -24,6 +25,8 @@
 <div class="container">
 	@yield('content')
 </div>
+<!--FOOTER-->
+@include('footer')
 <!--JS-->
 <!--jQuery-->
 <script
