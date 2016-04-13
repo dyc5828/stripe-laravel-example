@@ -7,8 +7,6 @@
 @stop
 
 @section('js')
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript" src="https://checkout.stripe.com/checkout.js"></script>
 <script type="text/javascript" src="{{ asset('js/cart.js') }}"></script>
 @stop
 
@@ -52,18 +50,7 @@
 </div>
 <div class="row">
 	<div class="col-sm-3 col-sm-offset-8">
-		<form action="/charge" method="POST" class="stripe-pay">
-			<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			<input type="hidden" name="price" value="{{ $total }}"> <!--DO NOT DO THIS IN PRODUCTION-->
-			<script
-				src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-				data-key="pk_test_DvrvJBVt79USQAaXLZX94T9l"
-				data-image="http://rlv.zcache.com/awesome_smiley_face_awesome_face_classic_round_sticker-rcb4989586f684f27a58f62a1348a557a_v9waf_8byvr_324.jpg"
-				data-name="AwesomeShop"
-				data-description="Your Awesome Stuff"
-				data-locale="auto">
-			</script>
-		</form>
+
 	</div>
 </div>
 
