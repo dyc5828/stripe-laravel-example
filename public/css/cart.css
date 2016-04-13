@@ -17,3 +17,8 @@ td {
 	font-size: 2em;
 	font-weight: bold;
 }
+
+.stripe-pay {
+	text-align: right;
+	margin: 10px auto 25px;
+}
