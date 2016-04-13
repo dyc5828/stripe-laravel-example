@@ -7,8 +7,6 @@
 
 [Starter](https://github.com/dyc5828/stripe-laravel-example/tree/starter)
 
-[Final](https://github.com/dyc5828/stripe-laravel-example/tree/final)
-
 ## Stripe
 
 [Stripe Documentation](https://stripe.com/docs)
