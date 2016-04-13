@@ -49,7 +49,7 @@ class CartController extends Controller {
 
 		try {
 			// set secret key
-			\Stripe\Stripe::setApiKey("sk_test_3N2t85bHxsrQlU4EKfSNQZzZ");
+			\Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
 			// charge object
 			$charge = \Stripe\Charge::create([
