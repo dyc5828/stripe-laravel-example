@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 class CartController extends Controller {
 
 	public function index() {
+		// cart items mock
 		$items = [
 			[
 				'picture' => 'https://quick.awesomestufftobuy.com/wp-content/uploads/2016/04/awesomestufftobuy_emoji-balloons-e1460385611976-335x450.jpg
@@ -39,28 +40,36 @@ class CartController extends Controller {
 	}
 
 	public function charge(Request $request) {
+		$error = false;
+
+		// test if there is stripe token
 		if (!$request->input('stripeToken')) {
 			return view('error');
 		}
-		$error = null;
 
 		try {
+			// set secret key
 			\Stripe\Stripe::setApiKey("sk_test_3N2t85bHxsrQlU4EKfSNQZzZ");
 
+			// charge object
 			$charge = \Stripe\Charge::create([
 				'amount' => $request->input('price') * 100,
 				'currency' => 'usd',
 				'source' => $request->input('stripeToken'),
 			]);
 		} catch (Exception $e) {
+			// error message
 			$error = $e->getMessage();
 		}
 
+		// if no error
 		if (!$error) {
-			return dd($charge);
+			return redirect('order')->with('chargeId', $charge->id);
+		} else {
+			return view('error', [
+				'message' => $error,
+			]);
 		}
-		return dd($error);
-		// return view('error');
 	}
 
 	public function review() {
