@@ -54,6 +54,7 @@
 	<div class="col-sm-3 col-sm-offset-8">
 		<form action="/charge" method="POST" class="stripe-pay">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			<input type="hidden" name="price" value="{{ $total }}"> <!--DO NOT DO THIS IN PRODUCTION-->
 			<script
 				src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 				data-key="pk_test_DvrvJBVt79USQAaXLZX94T9l"
