@@ -40,36 +40,7 @@ class CartController extends Controller {
 	}
 
 	public function charge(Request $request) {
-		$error = false;
 
-		// test if there is stripe token
-		if (!$request->input('stripeToken')) {
-			return view('error');
-		}
-
-		try {
-			// set secret key
-			\Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
-
-			// charge object
-			$charge = \Stripe\Charge::create([
-				'amount' => $request->input('price') * 100,
-				'currency' => 'usd',
-				'source' => $request->input('stripeToken'),
-			]);
-		} catch (Exception $e) {
-			// error message
-			$error = $e->getMessage();
-		}
-
-		// if no error
-		if (!$error) {
-			return redirect('order')->with('chargeId', $charge->id);
-		} else {
-			return view('error', [
-				'message' => $error,
-			]);
-		}
 	}
 
 	public function review() {
